@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Žalia Pupa | Vegetariškas ir veganiškas maistas Kaune</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --primary-light: #52b788;
+            --accent: #d8f3dc;
+            --dark: #1b4332;
+            --text: #2b2d42;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header / Hero */
+        header {
+            background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(27, 67, 50, 0.85)), 
+                        url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .rating-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Navigation Buttons */
+        .btn-group {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-light);
+            color: var(--dark);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--dark);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Content Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Headings */
+        h2 {
+            text-align: center;
+            color: var(--dark);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary-light);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Menu Section */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .menu-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .menu-item-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .menu-item-price {
+            font-weight: 700;
+            color: var(--primary);
+            background-color: var(--accent);
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        .menu-item-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--dark);
+            color: var(--white);
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="hero-title">Žalia Pupa</h1>
+        <p class="hero-tagline">Kulinarinių idėjų virtuvė Kaune • Vegetariškas bei veganiškas maistas</p>
+        <div class="rating-badge">★ 4.9 Google Vertinimas (330+ atsiliepimų)</div>
+        
+        <div class="btn-group">
+            <a href="https://wolt.com" target="_blank" class="btn btn-primary">Užsisakyti per Wolt</a>
+            <a href="https://facebook.com" target="_blank" class="btn btn-secondary">Facebook Puslapis</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section>
+            <h2>Mūsų Meniu</h2>
+            <div class="menu-grid">
+                
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Dienos Sriuba</span>
+                        <span class="menu-item-price">€4.30</span>
+                    </div>
+                    <p class="menu-item-desc">Trinta arba tirštesnė sriuba из sezoninių ingredientų. Švelni, subalansuota, tinka veganams.</p>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Dienos Maltinukai</span>
+                        <span class="menu-item-price">€7.90</span>
+                    </div>
+                    <p class="menu-item-desc">Augaliniai maltinukai su daržovėmis, augalinės grietinėlės padažu ir dviejomis salotomis.</p>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Bulvė Švarkelyje</span>
+                        <span class="menu-item-price">€9.90</span>
+                    </div>
+                    <p class="menu-item-desc">Didelė orkaitėje kepta bulvė su keptomis daržovėmis, lydytu sūriu, feta ir šviežiomis salotomis.</p>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Meksikietiška Tortilija</span>
+                        <span class="menu-item-price">€8.50</span>
+                    </div>
+                    <p class="menu-item-desc">Grilinta tortilija su daržovėmis, fermentiniu sūriu, feta, balzamiko actu ir šviežiomis salotomis.</p>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Vegetariškas Burgeris</span>
+                        <span class="menu-item-price">€9.90</span>
+                    </div>
+                    <p class="menu-item-desc">Augalinis paplotėlis, pomidoras, marinuoti agurkėliai, čederio sūris ir naminis padažas sezaminėje bandelėje.</p>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Salotos su Avinžirniais</span>
+                        <span class="menu-item-price">€9.90</span>
+                    </div>
+                    <p class="menu-item-desc">Traškios salotos, agurkai, pomidorai, marinuoti kepti avinžirniai, feta ir citrininis padažas.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>Informacija ir Darbo Laikas</h2>
+            <div class="info-grid">
+                
+                <div class="info-card">
+                    <h3>Kontaktai ir Adresas</h3>
+                    <p><strong>Adresas:</strong> Laisvės al. 78B, Kaunas, Lithuania</p>
+                    <p><strong>Telefonas:</strong> +370 692 24240</p>
+                    <p><strong>El. paštas:</strong> info@zaliapupa.lt</p>
+                    <br>
+                    <p><em>Raskite mus jaukiai įsikūrusius Laisvės alėjos kiemelyje!</em></p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Darbo Laikas</h3>
+                    <ul class="hours-list">
+                        <li><span>Pirmadienis</span> <span>11:00 – 16:00</span></li>
+                        <li><span>Antradienis</span> <span>11:00 – 16:00</span></li>
+                        <li><span>Trečiadienis</span> <span>11:00 – 16:00</span></li>
+                        <li><span>Ketvirtadienis</span> <span>11:00 – 16:00</span></li>
+                        <li><span>Penktadienis</span> <span>11:00 – 16:00</span></li>
+                        <li><span>Šeštadienis - Sekmadienis</span> <span>Uždaryta</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; Žalia Pupa. Visos teisės saugomos.</p>
+    </footer>
+
+</body>
+</html>
