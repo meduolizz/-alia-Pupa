@@ -18,6 +18,7 @@
             --white: #ffffff;
             --bolt: #34d186;
             --wolt: #00c2e8;
+            --badge-pop: #ffb703;
         }
 
         * {
@@ -35,11 +36,12 @@
 
         /* Hero Header */
         header {
-            background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(27, 67, 50, 0.85)), 
+            background: linear-gradient(rgba(27, 67, 50, 0.88), rgba(27, 67, 50, 0.88)), 
+                        url('image_a55ca2.jpg') center/cover no-repeat,
                         url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop') center/cover;
             color: var(--white);
             text-align: center;
-            padding: 80px 20px;
+            padding: 70px 20px;
         }
 
         .hero-title {
@@ -63,7 +65,7 @@
             backdrop-filter: blur(5px);
         }
 
-        /* Navigation Buttons */
+        /* Order / Action Buttons */
         .btn-group {
             margin-top: 25px;
             display: flex;
@@ -83,57 +85,42 @@
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .btn-wolt {
-            background-color: var(--wolt);
-            color: #ffffff;
-        }
-
-        .btn-bolt {
-            background-color: var(--bolt);
-            color: #ffffff;
-        }
-
-        .btn-facebook {
-            background-color: #1877f2;
-            color: #ffffff;
-        }
+        .btn-wolt { background-color: var(--wolt); color: #ffffff; }
+        .btn-bolt { background-color: var(--bolt); color: #ffffff; }
+        .btn-facebook { background-color: #1877f2; color: #ffffff; }
 
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        /* Container */
+        /* Layout Container */
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        h2 {
-            text-align: center;
+        .category-title {
             color: var(--dark);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            position: relative;
+            font-size: 1.6rem;
+            margin: 40px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background-color: var(--primary-light);
-            margin: 8px auto 0;
-            border-radius: 2px;
+        .category-title:first-of-type {
+            margin-top: 10px;
         }
 
-        /* Menu Grid with Images */
+        /* Menu Card Grid */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
+            gap: 22px;
         }
 
         .menu-card {
@@ -143,6 +130,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
             display: flex;
             flex-direction: column;
+            position: relative;
             transition: transform 0.2s;
         }
 
@@ -152,8 +140,27 @@
 
         .menu-card img {
             width: 100%;
-            height: 200px;
+            height: 210px;
             object-fit: cover;
+            background-color: #e9ecef;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: var(--badge-pop);
+            color: var(--dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        .card-badge.out-of-stock {
+            background-color: #e63946;
+            color: #ffffff;
         }
 
         .menu-card-body {
@@ -168,11 +175,12 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            gap: 10px;
         }
 
         .menu-item-title {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--dark);
         }
@@ -187,15 +195,25 @@
         }
 
         .menu-item-desc {
-            font-size: 0.9rem;
-            color: #666;
+            font-size: 0.88rem;
+            color: #555;
+            margin-bottom: 12px;
         }
 
-        /* Layout Grid for Info and Facebook Feed */
+        .diet-tags {
+            display: flex;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Content Layout (Contacts & FB Feed) */
         .content-layout {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
+            margin-top: 50px;
         }
 
         .info-card {
@@ -236,7 +254,7 @@
             padding: 30px;
             background-color: var(--dark);
             color: var(--white);
-            margin-top: 50px;
+            margin-top: 60px;
             font-size: 0.9rem;
         }
     </style>
@@ -259,124 +277,207 @@
     </header>
 
     <div class="container">
-        
-        <section>
-            <h2>Mūsų Patiekalai</h2>
-            <div class="menu-grid">
-                
-                <div class="menu-card">
-                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&auto=format&fit=crop" alt="Dienos Sriuba">
-                    <div class="menu-card-body">
-                        <div class="menu-card-header">
-                            <span class="menu-item-title">Dienos Sriuba</span>
-                            <span class="menu-item-price">€4.30</span>
-                        </div>
-                        <p class="menu-item-desc">Verdama iš sezoninių ingredientų, švelni ir subalansuota. Tinka veganams.</p>
-                    </div>
-                </div>
 
-                <div class="menu-card">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&auto=format&fit=crop" alt="Dienos Maltinukai">
-                    <div class="menu-card-body">
-                        <div class="menu-card-header">
-                            <span class="menu-item-title">Dienos Maltinukai</span>
-                            <span class="menu-item-price">€7.90</span>
-                        </div>
-                        <p class="menu-item-desc">Augaliniai maltinukai su daržovėmis, augalinės grietinėlės padažu ir 2 salotomis. Tinka veganams.</p>
-                    </div>
-                </div>
+        <h2 class="category-title">🥗 Salotos (Salads)</h2>
+        <div class="menu-grid">
 
-                <div class="menu-card">
-                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=500&auto=format&fit=crop" alt="Bulvė Švarkelyje">
-                    <div class="menu-card-body">
-                        <div class="menu-card-header">
-                            <span class="menu-item-title">Bulvė Švarkelyje</span>
-                            <span class="menu-item-price">€9.90</span>
-                        </div>
-                        <p class="menu-item-desc">Didelė orkaitėje kepta bulvė su keptomis daržovėmis, lydytu sūriu, feta ir salotomis.</p>
+            <div class="menu-card">
+                <span class="card-badge">Popular</span>
+                <img src="image_a5613f.jpg" alt="Salotos su keptu tofu">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Salotos su keptu tofu</span>
+                        <span class="menu-item-price">€9.90</span>
                     </div>
+                    <p class="menu-item-desc">Traškios salotos, agurkai, pomidorai, traškus keptas tofu ir lengvas citrininis padažas. Patiekiama su apelsino skiltelėmis ir uogomis.</p>
+                    <div class="diet-tags">🌱 Veganiška / Vegetariška</div>
                 </div>
-
-                <div class="menu-card">
-                    <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=500&auto=format&fit=crop" alt="Meksikietiška Tortilija">
-                    <div class="menu-card-body">
-                        <div class="menu-card-header">
-                            <span class="menu-item-title">Meksikietiška Tortilija</span>
-                            <span class="menu-item-price">€8.50</span>
-                        </div>
-                        <p class="menu-item-desc">Grilinta tortilija su keptomis daržovėmis, sūriu, feta, balzamiko actu ir šviežiomis salotomis.</p>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=500&auto=format&fit=crop" alt="Vegetariškas Burgeris">
-                    <div class="menu-card-body">
-                        <div class="menu-card-header">
-                            <span class="menu-item-title">Vegetariškas Burgeris</span>
-                            <span class="menu-item-price">€9.90</span>
-                        </div>
-                        <p class="menu-item-desc">Augalinis paplotėlis, pomidoras, marinuoti agurkėliai, čederio sūris ir naminis padažas.</p>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&auto=format&fit=crop" alt="Salotos su Avinžirniais">
-                    <div class="menu-card-body">
-                        <div class="menu-card-header">
-                            <span class="menu-item-title">Salotos su Avinžirniais & Feta</span>
-                            <span class="menu-item-price">€9.90</span>
-                        </div>
-                        <p class="menu-item-desc">Traškios salotos, agurkai, pomidorai, marinuoti avinžirniai, feta ir citrininis padažas.</p>
-                    </div>
-                </div>
-
             </div>
-        </section>
 
-        <section>
-            <h2>Naujienos ir Kontaktai</h2>
-            <div class="content-layout">
-                
-                <div>
-                    <div class="info-card">
-                        <h3>Kontaktai & Adresas</h3>
-                        <p><strong>Adresas:</strong> Laisvės al. 78B, LT-44249 Kaunas</p>
-                        <p><strong>Telefonas:</strong> +370 692 24240</p>
-                        <p><strong>El. paštas:</strong> info@zaliapupa.lt</p>
+            <div class="menu-card">
+                <img src="image_a56107.jpg" alt="Salotos su avinžirniais ir feta">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Salotos su avinžirniais ir feta</span>
+                        <span class="menu-item-price">€9.90</span>
                     </div>
-
-                    <div class="info-card">
-                        <h3>Darbo Laikas</h3>
-                        <ul class="hours-list">
-                            <li><span>Pirmadienis</span> <span>11:00 – 16:00</span></li>
-                            <li><span>Antradienis</span> <span>11:00 – 16:00</span></li>
-                            <li><span>Trečiadienis</span> <span>11:00 – 16:00</span></li>
-                            <li><span>Ketvirtadienis</span> <span>11:00 – 16:00</span></li>
-                            <li><span>Penktadienis</span> <span>11:00 – 16:00</span></li>
-                            <li><span>Šeštadienis – Sekmadienis</span> <span>Uždaryta</span></li>
-                        </ul>
-                    </div>
+                    <p class="menu-item-desc">Traškios salotos, agurkai, pomidorai, marinuoti kepti avinžirniai, feta ir lengvas citrininis padažas.</p>
+                    <div class="diet-tags">🌱 Vegetariška</div>
                 </div>
-
-                <div class="fb-feed-card">
-                    <h3 style="margin-bottom: 15px; color: var(--primary);">Facebook Naujienos</h3>
-                    <div class="fb-page" 
-                         data-href="https://www.facebook.com/zaliapupa/" 
-                         data-tabs="timeline" 
-                         data-width="340" 
-                         data-height="500" 
-                         data-small-header="false" 
-                         data-adapt-container-width="true" 
-                         data-hide-cover="false" 
-                         data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/zaliapupa/" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/zaliapupa/">Žalia pupa</a>
-                        </blockquote>
-                    </div>
-                </div>
-
             </div>
-        </section>
+
+            <div class="menu-card">
+                <img src="image_a560ff.jpg" alt="Salotos su keptu varškės sūriu">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Salotos su keptu varškės sūriu</span>
+                        <span class="menu-item-price">€9.90</span>
+                    </div>
+                    <p class="menu-item-desc">Traškios salotos, agurkai, pomidorai, keptas marinuotas varškės sūris ir citrininis padažas.</p>
+                    <div class="diet-tags">🌱 Vegetariška</div>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="category-title">🍲 Dienos Patiekalai (Daily Special)</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <span class="card-badge">Popular</span>
+                <img src="image_a560e2.jpg" alt="Dienos maltinukai su dviejomis salotomis">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Dienos maltinukai (su 2 salotomis)</span>
+                        <span class="menu-item-price">€7.90</span>
+                    </div>
+                    <p class="menu-item-desc">Dienos augaliniai maltinukai su daržovėmis. Patiekiami su augalinės grietinėlės padažu ir 2 salotomis.</p>
+                    <div class="diet-tags">🌱 Veganiška / Vegetariška</div>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="image_a55d05.jpg" alt="Dienos sriuba">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Dienos sriuba</span>
+                        <span class="menu-item-price">€4.30</span>
+                    </div>
+                    <p class="menu-item-desc">Verdama iš sezoninių ingredientų (gali būti trinta arba tirštesnė), švelni ir subalansuota.</p>
+                    <div class="diet-tags">🌱 Veganiška / Vegetariška</div>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <span class="card-badge out-of-stock">Išparduota</span>
+                <img src="image_a55ce2.jpg" alt="Kokorai">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Kokorai (Bulvių & brokolių blynai)</span>
+                        <span class="menu-item-price">€7.90</span>
+                    </div>
+                    <p class="menu-item-desc">Purūs bulvių ir brokolių paplotėliai, patiekiami su švelniu varškės ir augalinės grietinėlės padažu.</p>
+                    <div class="diet-tags">🌱 Vegetariška</div>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="category-title">🥙 Karštieji Patiekalai (Hot Dishes)</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <span class="card-badge">Popular</span>
+                <img src="image_a55cab.jpg" alt="Bulvė švarkelyje">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Bulvė švarkelyje (Jacket Potato)</span>
+                        <span class="menu-item-price">€9.90</span>
+                    </div>
+                    <p class="menu-item-desc">Didelė orkaitėje kepta bulvė, įdaryta keptomis daržovėmis, lydytu sūriu ir feta, su šviežiomis salotomis.</p>
+                    <div class="diet-tags">🌱 Vegetariška</div>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="image_a55ca6.jpg" alt="Meksikietiška tortilija su sūriu">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Meksikietiška tortilija su sūriu</span>
+                        <span class="menu-item-price">€8.50</span>
+                    </div>
+                    <p class="menu-item-desc">Grilinta tortilija su keptomis daržovėmis, fermentiniu sūriu, feta ir balzamiko actu.</p>
+                    <div class="diet-tags">🌱 Vegetariška</div>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="category-title">🍔 Burgeriai (Burgers)</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <img src="image_a55ca2.jpg" alt="Vegetariškas burgeris">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">Vegetariškas burgeris su paplotėliu</span>
+                        <span class="menu-item-price">€9.90</span>
+                    </div>
+                    <p class="menu-item-desc">Augalinis paplotėlis, pomidoras, marinuoti agurkėliai, čederio sūris ir firminis padažas minkštoje sezaminėje bandelėje.</p>
+                    <div class="diet-tags">🌱 Vegetariška</div>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="category-title">🥤 Gėrimai (Drinks)</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?q=80&w=800&auto=format&fit=crop" alt="MAGNUM Sultys">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">MAGNUM Sultys (250 ml)</span>
+                        <span class="menu-item-price">€2.00</span>
+                    </div>
+                    <p class="menu-item-desc">Įvairių vaisių / Apelsinų / Vynuogių / Pomidorų su kajeno pipiru. (+€0.10 depozitas)</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=800&auto=format&fit=crop" alt="SIP SAP Beržų sula">
+                <div class="menu-card-body">
+                    <div class="menu-card-header">
+                        <span class="menu-item-title">SIP SAP Beržų sula (330 ml)</span>
+                        <span class="menu-item-price">€2.80</span>
+                    </div>
+                    <p class="menu-item-desc">Ekologiška gryna beržų sula. Šgaivinta gamtos energija. (+€0.10 depozitas)</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="content-layout">
+            
+            <div>
+                <div class="info-card">
+                    <h3>Kontaktai & Adresas</h3>
+                    <p><strong>Adresas:</strong> Laisvės al. 78B, LT-44249 Kaunas</p>
+                    <p><strong>Telefonas:</strong> (8-692) 24240 / +370 616 10741</p>
+                    <p><strong>El. paštas:</strong> info@zaliapupa.lt</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Darbo Laikas</h3>
+                    <ul class="hours-list">
+                        <li><span>Pirmadienis</span> <span>11:00 – 16:00</span></li>
+                        <li><span>Antradienis</span> <span>11:00 – 16:00</span></li>
+                        <li><span>Trečiadienis</span> <span>11:00 – 16:00</span></li>
+                        <li><span>Ketvirtadienis</span> <span>11:00 – 16:00</span></li>
+                        <li><span>Penktadienis</span> <span>11:00 – 16:00</span></li>
+                        <li><span>Šeštadienis – Sekmadienis</span> <span>Uždaryta</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="fb-feed-card">
+                <h3 style="margin-bottom: 15px; color: var(--primary);">Facebook Naujienos</h3>
+                <div class="fb-page" 
+                     data-href="https://www.facebook.com/zaliapupa/" 
+                     data-tabs="timeline" 
+                     data-width="340" 
+                     data-height="500" 
+                     data-small-header="false" 
+                     data-adapt-container-width="true" 
+                     data-hide-cover="false" 
+                     data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/zaliapupa/" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/zaliapupa/">Žalia pupa</a>
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 
