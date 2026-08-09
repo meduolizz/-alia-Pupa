@@ -18,6 +18,7 @@
             --white: #ffffff;
             --bolt: #34d186;
             --wolt: #00c2e8;
+            --facebook: #1877f2;
             --badge-pop: #ffb703;
         }
 
@@ -87,7 +88,7 @@
 
         .btn-wolt { background-color: var(--wolt); color: #ffffff; }
         .btn-bolt { background-color: var(--bolt); color: #ffffff; }
-        .btn-facebook { background-color: #1877f2; color: #ffffff; }
+        .btn-facebook { background-color: var(--facebook); color: #ffffff; }
 
         .btn:hover {
             transform: translateY(-2px);
@@ -116,10 +117,10 @@
             margin-top: 10px;
         }
 
-        /* Menu Grid */
+        /* Menu Grid Fix: prevents cards from expanding endlessly when 1 or 2 items exist */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
             gap: 22px;
         }
 
@@ -131,16 +132,18 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
         }
 
         .menu-card:hover {
             transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         .menu-card img {
             width: 100%;
-            height: 210px;
+            height: 220px;
             object-fit: cover;
             background-color: #e9ecef;
         }
@@ -208,12 +211,13 @@
             color: var(--primary);
         }
 
-        /* Info and FB Grid */
+        /* Info and FB Grid Layout */
         .content-layout {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             margin-top: 50px;
+            align-items: start;
         }
 
         .info-card {
@@ -240,12 +244,44 @@
             border-bottom: 1px dashed #eee;
         }
 
+        /* Beautiful Custom Styled Facebook Widget */
         .fb-feed-card {
             background-color: var(--white);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            text-align: center;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 1px solid #eef2f5;
+        }
+
+        .fb-card-header {
+            background: linear-gradient(135deg, #1877f2, #0d52b5);
+            color: var(--white);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .fb-card-header h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fb-card-body {
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            background-color: #f7f9fa;
+        }
+
+        .fb-page-wrapper {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            background: #fff;
         }
 
         footer {
@@ -441,48 +477,4 @@
             <div>
                 <div class="info-card">
                     <h3>Kontaktai & Adresas</h3>
-                    <p><strong>Adresas:</strong> Laisvės al. 78B, LT-44249 Kaunas</p>
-                    <p><strong>Telefonas:</strong> (8-692) 24240 / +370 616 10741</p>
-                    <p><strong>El. paštas:</strong> info@zaliapupa.lt</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>Darbo Laikas</h3>
-                    <ul class="hours-list">
-                        <li><span>Pirmadienis</span> <span>11:00 – 16:00</span></li>
-                        <li><span>Antradienis</span> <span>11:00 – 16:00</span></li>
-                        <li><span>Trečiadienis</span> <span>11:00 – 16:00</span></li>
-                        <li><span>Ketvirtadienis</span> <span>11:00 – 16:00</span></li>
-                        <li><span>Penktadienis</span> <span>11:00 – 16:00</span></li>
-                        <li><span>Šeštadienis – Sekmadienis</span> <span>Uždaryta</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="fb-feed-card">
-                <h3 style="margin-bottom: 15px; color: var(--primary);">Facebook Naujienos</h3>
-                <div class="fb-page" 
-                     data-href="https://www.facebook.com/zaliapupa/" 
-                     data-tabs="timeline" 
-                     data-width="340" 
-                     data-height="500" 
-                     data-small-header="false" 
-                     data-adapt-container-width="true" 
-                     data-hide-cover="false" 
-                     data-show-facepile="true">
-                    <blockquote cite="https://www.facebook.com/zaliapupa/" class="fb-xfbml-parse-ignore">
-                        <a href="https://www.facebook.com/zaliapupa/">Žalia pupa</a>
-                    </blockquote>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&copy; Žalia Pupa. Visos teisės saugomos.</p>
-    </footer>
-
-</body>
-</html>
+                    <p><strong>
