@@ -35,26 +35,25 @@
             line-height: 1.6;
         }
 
-        /* Hero Header */
+        /* Header / Hero */
         header {
             background: linear-gradient(rgba(27, 67, 50, 0.88), rgba(27, 67, 50, 0.88)), 
-                        url('zp9.jpeg') center/cover no-repeat,
-                        url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop') center/cover;
+                        url('zp9.jpeg') center/cover no-repeat;
             color: var(--white);
             text-align: center;
-            padding: 70px 20px;
+            padding: 60px 20px;
         }
 
         .hero-title {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .hero-tagline {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .rating-badge {
@@ -95,7 +94,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        /* Container */
+        /* Main Container */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -104,8 +103,8 @@
 
         .category-title {
             color: var(--dark);
-            font-size: 1.6rem;
-            margin: 40px 0 20px 0;
+            font-size: 1.5rem;
+            margin: 35px 0 18px 0;
             padding-bottom: 8px;
             border-bottom: 3px solid var(--primary-light);
             display: flex;
@@ -117,35 +116,43 @@
             margin-top: 10px;
         }
 
-        /* Menu Grid Fix: prevents cards from expanding endlessly when 1 or 2 items exist */
+        /* Menu Grid Fix: Fixed max card size so single items don't stretch */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
-            gap: 22px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 330px));
+            gap: 24px;
+            justify-content: flex-start;
+        }
+
+        @media (max-width: 720px) {
+            .menu-grid {
+                justify-content: center;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
         }
 
         .menu-card {
             background-color: var(--white);
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
             position: relative;
             transition: transform 0.2s, box-shadow 0.2s;
-            width: 100%;
+            border: 1px solid #eaeaea;
         }
 
         .menu-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.09);
         }
 
         .menu-card img {
             width: 100%;
-            height: 220px;
+            height: 210px;
             object-fit: cover;
-            background-color: #e9ecef;
+            background-color: #f1f3f5;
         }
 
         .card-badge {
@@ -167,7 +174,7 @@
         }
 
         .menu-card-body {
-            padding: 20px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -183,7 +190,7 @@
         }
 
         .menu-item-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--dark);
         }
@@ -211,7 +218,7 @@
             color: var(--primary);
         }
 
-        /* Info and FB Grid Layout */
+        /* Layout for Info & Facebook Section */
         .content-layout {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -222,15 +229,33 @@
 
         .info-card {
             background-color: var(--white);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 24px;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
             margin-bottom: 20px;
+            border: 1px solid #eaeaea;
         }
 
         .info-card h3 {
             color: var(--primary);
             margin-bottom: 15px;
+        }
+
+        .info-card p {
+            margin-bottom: 10px;
+        }
+
+        /* Interactive Contact Links */
+        .contact-link {
+            color: var(--primary);
+            text-decoration: underline;
+            text-decoration-color: rgba(45, 106, 79, 0.4);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .contact-link:hover {
+            color: var(--dark);
         }
 
         .hours-list {
@@ -244,44 +269,34 @@
             border-bottom: 1px dashed #eee;
         }
 
-        /* Beautiful Custom Styled Facebook Widget */
+        /* Cleaned Facebook Card */
         .fb-feed-card {
             background-color: var(--white);
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
             overflow: hidden;
-            border: 1px solid #eef2f5;
+            border: 1px solid #eaeaea;
+            width: 100%;
         }
 
         .fb-card-header {
-            background: linear-gradient(135deg, #1877f2, #0d52b5);
+            background-color: var(--facebook);
             color: var(--white);
-            padding: 16px 20px;
+            padding: 14px 20px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-        }
-
-        .fb-card-header h3 {
+            gap: 10px;
             font-size: 1.05rem;
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .fb-card-body {
             padding: 15px;
             display: flex;
             justify-content: center;
-            background-color: #f7f9fa;
-        }
-
-        .fb-page-wrapper {
-            border-radius: 8px;
+            background-color: #ffffff;
+            width: 100%;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            background: #fff;
         }
 
         footer {
@@ -477,9 +492,21 @@
             <div>
                 <div class="info-card">
                     <h3>Kontaktai & Adresas</h3>
-                    <p><strong>Adresas:</strong> Laisvės al. 78B, LT-44249 Kaunas</p>
-                    <p><strong>Telefonas:</strong> (8-692) 24240 / +370 616 10741</p>
-                    <p><strong>El. paštas:</strong> info@zaliapupa.lt</p>
+                    <p>
+                        <strong>Adresas:</strong> 
+                        <a href="https://maps.google.com/?q=Laisv%C4%97s+al.+78B,+LT-44249+Kaunas" target="_blank" rel="noopener" class="contact-link">
+                            Laisvės al. 78B, LT-44249 Kaunas
+                        </a>
+                    </p>
+                    <p>
+                        <strong>Telefonas:</strong> 
+                        <a href="tel:+37069224240" class="contact-link">(8-692) 24240</a> / 
+                        <a href="tel:+37061610741" class="contact-link">+370 616 10741</a>
+                    </p>
+                    <p>
+                        <strong>El. paštas:</strong> 
+                        <a href="mailto:info@zaliapupa.lt" class="contact-link">info@zaliapupa.lt</a>
+                    </p>
                 </div>
 
                 <div class="info-card">
@@ -497,28 +524,24 @@
 
             <div class="fb-feed-card">
                 <div class="fb-card-header">
-                    <h3>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                        Naujienos iš Facebook
-                    </h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    Naujienos iš Facebook
                 </div>
                 <div class="fb-card-body">
-                    <div class="fb-page-wrapper">
-                        <div class="fb-page" 
-                             data-href="https://www.facebook.com/zaliapupa/" 
-                             data-tabs="timeline" 
-                             data-width="340" 
-                             data-height="480" 
-                             data-small-header="true" 
-                             data-adapt-container-width="true" 
-                             data-hide-cover="true" 
-                             data-show-facepile="false">
-                            <blockquote cite="https://www.facebook.com/zaliapupa/" class="fb-xfbml-parse-ignore">
-                                <a href="https://www.facebook.com/zaliapupa/">Žalia pupa</a>
-                            </blockquote>
-                        </div>
+                    <div class="fb-page" 
+                         data-href="https://www.facebook.com/zaliapupa/" 
+                         data-tabs="timeline" 
+                         data-width="500" 
+                         data-height="650" 
+                         data-small-header="false" 
+                         data-adapt-container-width="true" 
+                         data-hide-cover="false" 
+                         data-show-facepile="false">
+                        <blockquote cite="https://www.facebook.com/zaliapupa/" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/zaliapupa/">Žalia pupa</a>
+                        </blockquote>
                     </div>
                 </div>
             </div>
